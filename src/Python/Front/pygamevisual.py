@@ -44,16 +44,22 @@ def escolhaCaras(objetos):
             if event.type == pygame.MOUSEBUTTONDOWN  and pygame.mouse.get_pos()[1] <= 300: 
                 pos = pygame.mouse.get_pos()[0]
                 if pos in range(0, 300):
+                    pygame.quit()
                     return objetos["Gustavo"]
                 elif pos in range(300, 600):
+                    pygame.quit()
                     return objetos["Jamilson"]
                 elif pos in range(600, 900):
+                    pygame.quit()
                     return objetos["Kishimoto"]
                 elif pos in range(900, 1200):
+                    pygame.quit()
                     return objetos["Leonardo"]
                 elif pos in range(1200, 1500):
+                    pygame.quit()
                     return objetos["Luba"]
                 elif pos in range(1500, 1800):
+                    pygame.quit()
                     return objetos["Orlando"]
                     
         screen.fill("grey")

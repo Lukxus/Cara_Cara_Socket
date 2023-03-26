@@ -6,15 +6,15 @@ class figuras():
         self.usa_oculos = usa_oculos
     
     def getCorCabelo(self):
-        return self.cor_cabelo
+        return self.cor_cabelo.value
     
     def getTipoCorteCabelo(self):
-        return self.tipo_corte_cabelo
+        return self.tipo_corte_cabelo.value
     
     def getTemBarba(self):
-        return self.tem_barba
+        return self.tem_barba.value
     
     def getUsaOculos(self):
-        return self.usa_oculos
+        return self.usa_oculos.value
 
 

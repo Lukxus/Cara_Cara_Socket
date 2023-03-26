@@ -1,6 +1,5 @@
 def play(value):
     my_turn = value
-
     if my_turn == 1: #ask a question
         ask()
     else:
@@ -17,7 +16,7 @@ def ask():
             print("[1] - Cabelo Preto\n[2] - cabelo Marrom\n[3] - Cabelo Cinza")
             escolha2 = int(input("Escolha uma cor -> "))
         case 2:
-            print("[1] - Calvo\n[2] - Raspado\n[3] - Liso\n[4]-Baixo")
+            print("[1] - Calvo\n[2] - Raspado\n[3] - Liso\n[4] - Baixo")
             escolha2 = int(input("Escolha um corte -> "))
         case 3:
             print("[1] - True\n[2] - False")
@@ -30,8 +29,14 @@ def ask():
 def answer(tupla, cara): #tupla[0] - contexto ; tupla[1] - valor
     match tupla[0]:
         case 1:
-            return tupla[1] ==  
+            return tupla[1] == cara.getCorCabelo()
+        case 2:
+            return tupla[1] == cara.getTipoCorteCabelo()
+        case 3:
+            return tupla[1] == cara.getTemBarba()
+        case 4:
+            return tupla[1] == cara.getUsaOculos()
 
 
 
-play()
+#play()
