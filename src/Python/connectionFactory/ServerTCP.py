@@ -1,10 +1,10 @@
 import socket #importa modulo socket
  
 
-def initServidor():
-    TCP_IP = '192.168.100.14' # endereço IP do servidor 
+def iniciaConexao():
+    """TCP_IP = '192.168.100.14' # endereço IP do servidor 
     TCP_PORTA = 24000       # porta disponibilizada pelo servidor
-    TAMANHO_BUFFER = 1024     # definição do tamanho do buffer
+    TAMANHO_BUFFER = 1024     # definição do tamanho do buffer"""
     count = 0
     while count == 0:
             # Criação de socket TCP
