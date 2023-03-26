@@ -28,7 +28,9 @@ def ask():
     return((escolha1, escolha2))
 
 def answer(tupla, cara): #tupla[0] - contexto ; tupla[1] - valor
-    if tupla[1] == 
+    match tupla[0]:
+        case 1:
+            return tupla[1] ==  
 
 
 
