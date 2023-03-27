@@ -13,44 +13,23 @@ TAMANHO_BUFFER = 1024
 def main():
 
     
-    # Jogo
-
-    #bloco de seleção da sua cara
     objetos = Objetos.figuras.gerando_caras()
     escolhido = None
     while escolhido == None:
         escolhido = Front.pygamevisual.escolhaCaras(objetos)
 
     while 1:
-        # Inicia comunicação
-
-        # Criação de socket TCP do cliente
-        cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # Conecta ao servidor em IP e porta especifica 
-        cliente.bind((TCP_IP, TCP_PORTA))
-        #print(escolhido.getCorCabelo())
-        recebe_pergunta = str(connectionFactory.ClienteTCP.recebe_cliente(cliente))
-        recebe_pergunta = recebe_pergunta[2:-1]
-        cliente.close()
-
-        #envia
-        cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # Conecta ao servidor em IP e porta especifica 
+        cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
         cliente.connect((TCP_IP, TCP_PORTA))
+        recebe_pergunta = str(connectionFactory.ClienteTCP.recebe_cliente(cliente))
+        #recebe_pergunta = recebe_pergunta[2:-1]
         answer = Jogo.main.answer(eval(recebe_pergunta), escolhido)
-        #eval converte uma string em tupla
         connectionFactory.ClienteTCP.envia_cliente(cliente, str(answer))
         ask = Jogo.main.ask()
         connectionFactory.ClienteTCP.envia_cliente(cliente, str(ask))
         cliente.close()
-
-        #recebe
-        cliente = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        # Conecta ao servidor em IP e porta especifica 
-        cliente.bind((TCP_IP, TCP_PORTA))
         recebe_resp = connectionFactory.ClienteTCP.recebe_cliente(cliente)
-        print(f"A resposta dada foi {recebe_resp}")
-        cliente.close() # fecha a conexao
-    
+        
+    cliente.close() # fecha a conexao
 
 main()
