@@ -5,7 +5,7 @@ import connectionFactory.ClienteTCP
 import socket
 
 
-TCP_IP = '192.168.15.17' # endereço IP do servidor 
+TCP_IP = '192.168.15.1' # endereço IP do servidor 
 TCP_PORTA = 24000      # porta disponibilizada pelo servidor
 TAMANHO_BUFFER = 1024
 
