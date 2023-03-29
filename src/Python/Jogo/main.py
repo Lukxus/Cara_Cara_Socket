@@ -8,7 +8,7 @@ def play(value):
 
 def ask():
     print("Deseja perguntar sobre o que?")
-    print("[1] - Cor do cabelo\n[2] - Corte do cabelo\n[3] - Barba\n[4] - Óculos")
+    print("[1] - Cor do cabelo\n[2] - Corte do cabelo\n[3] - Barba\n[4] - Óculos\n[5] - Fazer palpite")
     escolha1 = int(input("Deseja perguntar sobre o que? -> "))
     escolha2 = 0
     match escolha1:
@@ -24,19 +24,22 @@ def ask():
         case 4:
             print("[1] - True\n[2] - False")
             escolha2 = int(input("Escolha uma condição -> "))
+        case 5:
+            print("- Luba\n- Kishimoto\n- Orlando\n- Gustavo\n- Jamilson\n- Leonardo")
+            escolha2 = input("Escolha um nome -> ")
     return((escolha1, escolha2))
 
-def answer(tupla, cara): #tupla[0] - contexto ; tupla[1] - valor
-    match tupla[0]:
+def answer(dados, cara): #dados[0] - contexto ; dados[1] - valor
+    match dados[0]:
         case 1:
-            return tupla[1] == cara.getCorCabelo()
+            return dados[1] == cara.getCorCabelo()
         case 2:
-            return tupla[1] == cara.getTipoCorteCabelo()
+            return dados[1] == cara.getTipoCorteCabelo()
         case 3:
-            return tupla[1] == cara.getTemBarba()
+            return dados[1] == cara.getTemBarba()
         case 4:
-            return tupla[1] == cara.getUsaOculos()
-
-
+            return dados[1] == cara.getUsaOculos()
+        case 5:
+            return dados[1].upper() == cara.getNome().upper()
 
 #play()
