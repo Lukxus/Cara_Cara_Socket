@@ -22,11 +22,25 @@ def main():
     while addr:
         pergunta = Jogo.main.ask()
         conn.send(str(pergunta).encode())
-        resposta = conn.recv(1024)
+        resposta = conn.recv(1024).decode()
+        if (pergunta[0] == 5 and resposta == "True"):
+            print("Voce ganhou!!!")
+            break
+        elif(pergunta[0] == 5 and resposta == "False"):
+            print("Voce perdeu!!!")
+            break
         print(f"\n A resposta para a sua pergunta foi:{resposta}")
-        pergunta_cliente = conn.recv(1024)
-        print(pergunta_cliente)
-        conn.send(str(Jogo.main.answer(eval(pergunta_cliente), escolhido)).encode())
+        pergunta_cliente = conn.recv(1024).decode()
+        
+        reposta_cliente = str(Jogo.main.answer(eval(pergunta_cliente), escolhido))
+        conn.send(reposta_cliente.encode())
+        if (reposta_cliente == "True" and pergunta_cliente[1] == "5"):
+            print("Voce perdeu!!!")
+            break
+
+        elif(reposta_cliente == "False" and pergunta_cliente[1] == "5"):
+            print("Voce ganhou!!!")
+            break
             
     host.close()
     

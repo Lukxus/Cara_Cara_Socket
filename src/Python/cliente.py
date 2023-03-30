@@ -18,14 +18,30 @@ def main():
     cliente.connect((TCP_IP, TCP_PORTA))
     print(f"A sua cara é {escolhido.getNome()}")
     
-    while 1:
+    while cliente:
         data, addr = cliente.recvfrom(1024)
         #print(data.decode())
         data = data.decode()
-        cliente.send(str(Jogo.main.answer(eval(data), escolhido)).encode())
+        resposta_host = (str(Jogo.main.answer(eval(data), escolhido)))
+        cliente.send(resposta_host.encode())
+
+        if (resposta_host == "True" and data[1] == "5"):
+            print("Voce perdeu!!!")
+            break
+
+        elif(resposta_host == "False" and data[1] == "5"):
+            print("Voce ganhou!!!")
+            break
+
         pergunta = Jogo.main.ask()
         cliente.send(str(pergunta).encode())
         resposta = cliente.recv(1024).decode()
+        if (pergunta[0] == 5 and resposta == "True"):
+            print("Voce ganhou!!!")
+            break
+        elif(pergunta[0] == 5 and resposta == "False"):
+            print("Voce perdeu!!!")
+            break
         print(f"\n A resposta para a sua pergunta foi:{resposta}")
     cliente.close()
         
