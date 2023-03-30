@@ -1,9 +1,0 @@
-1. servidor e cliente iniciam comunição
-2. servidor escolhe cara
-3. cleinte escolhe cara
-4. servidor faz perguntar
-5. cliente responde perguntar
-6. cliente perguntar
-...
-...
-x. Até alguem acusar final 
