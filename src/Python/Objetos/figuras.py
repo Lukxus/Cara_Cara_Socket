@@ -22,7 +22,7 @@ def gerando_caras():
                                         Enums.figuras.cor_cabelo.Preto, 
                                         Enums.figuras.tipo_corte_cabelo.Baixo,
                                         Enums.figuras.tem_barba.Falso,
-                                        Enums.figuras.usa_oculos.Verdadeiro) , 
+                                        Enums.figuras.usa_oculos.Falso) , 
         "Jamilson" : Classes.figuras.figuras("Jamilson",
                                         Enums.figuras.cor_cabelo.Preto, 
                                         Enums.figuras.tipo_corte_cabelo.Calvo,

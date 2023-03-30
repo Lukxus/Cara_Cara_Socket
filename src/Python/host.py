@@ -12,7 +12,6 @@ TAMANHO_BUFFER = 1024
 caras = Objetos.figuras.gerando_caras()
 escolhido = Front.pygamevisual.escolhaCaras(caras)
 
-
 def main():
     host = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     host.bind((TCP_IP, TCP_PORTA))
@@ -20,28 +19,28 @@ def main():
     conn, addr = host.accept()
     print(f"A sua cara é {escolhido.getNome()}")
     while addr:
-        pergunta = Jogo.main.ask()
+        pergunta = Jogo.main.ask(caras)
         conn.send(str(pergunta).encode())
         resposta = conn.recv(1024).decode()
         if (pergunta[0] == 5 and resposta == "True"):
-            print("Voce ganhou!!!")
+            print("\nVoce ganhou!!!")
             break
         elif(pergunta[0] == 5 and resposta == "False"):
-            print("Voce perdeu!!!")
+            print("\nVoce perdeu!!!")
             break
-        print(f"\n A resposta para a sua pergunta foi:{resposta}")
+        if resposta == "True":
+            print(f"\nA resposta para a sua pergunta foi: Verdadeiro")
+        elif resposta == "False":
+            print(f"\nA resposta para a sua pergunta foi: Falso")
         pergunta_cliente = conn.recv(1024).decode()
-        
         reposta_cliente = str(Jogo.main.answer(eval(pergunta_cliente), escolhido))
         conn.send(reposta_cliente.encode())
         if (reposta_cliente == "True" and pergunta_cliente[1] == "5"):
-            print("Voce perdeu!!!")
+            print("\nVoce perdeu!!!")
             break
-
         elif(reposta_cliente == "False" and pergunta_cliente[1] == "5"):
-            print("Voce ganhou!!!")
+            print("\nVoce ganhou!!!")
             break
-            
     host.close()
     
 main()

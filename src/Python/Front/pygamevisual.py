@@ -6,7 +6,7 @@ import Objetos.figuras
 comprimento = 1800
 altura = 720
 
-def escolhaCaras(objetos):
+def escolhaCaras(objetos, mensagem='Escolha a sua cara!!'):
     # pygame setup
     pygame.init()
     screen = pygame.display.set_mode((comprimento, altura))
@@ -16,7 +16,7 @@ def escolhaCaras(objetos):
 
     green=(255, 255, 255)
     font = pygame.font.Font('freesansbold.ttf', 32)
-    text = font.render('Escolha a sua cara!!', True, green)
+    text = font.render(mensagem, True, green)
     textRect = text.get_rect()
     textRect.center = (comprimento // 2, altura // 2)
     

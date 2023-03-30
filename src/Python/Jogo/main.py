@@ -1,3 +1,5 @@
+import Front.pygamevisual
+
 def play(value):
     my_turn = value
     if my_turn == 1: #ask a question
@@ -6,7 +8,7 @@ def play(value):
         answer()
 
 
-def ask():
+def ask(caras):
     print("Deseja perguntar sobre o que?")
     print("[1] - Cor do cabelo\n[2] - Corte do cabelo\n[3] - Barba\n[4] - Óculos\n[5] - Fazer palpite")
     escolha1 = int(input("Deseja perguntar sobre o que? -> "))
@@ -19,14 +21,14 @@ def ask():
             print("[1] - Calvo\n[2] - Raspado\n[3] - Liso\n[4] - Baixo")
             escolha2 = int(input("Escolha um corte -> "))
         case 3:
-            print("[1] - True\n[2] - False")
+            print("[1] - Verdadeiro\n[2] - Falso")
             escolha2 = int(input("Escolha uma condição -> "))
         case 4:
-            print("[1] - True\n[2] - False")
+            print("[1] - Verdadeiro\n[2] - Falso")
             escolha2 = int(input("Escolha uma condição -> "))
         case 5:
-            print("- Luba\n- Kishimoto\n- Orlando\n- Gustavo\n- Jamilson\n- Leonardo")
-            escolha2 = input("Escolha um nome -> ")
+            #print("- Luba\n- Kishimoto\n- Orlando\n- Gustavo\n- Jamilson\n- Leonardo")
+            escolha2 = (Front.pygamevisual.escolhaCaras(caras, "Escolha a cara do seu adversario")).getNome()
     return((escolha1, escolha2))
 
 def answer(dados, cara): #dados[0] - contexto ; dados[1] - valor
