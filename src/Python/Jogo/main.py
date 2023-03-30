@@ -9,7 +9,7 @@ def play(value):
 
 
 def ask(caras):
-    print("Deseja perguntar sobre o que?")
+    print("\nDeseja perguntar sobre o que?")
     print("[1] - Cor do cabelo\n[2] - Corte do cabelo\n[3] - Barba\n[4] - Óculos\n[5] - Fazer palpite")
     escolha1 = int(input("Deseja perguntar sobre o que? -> "))
     escolha2 = 0
